@@ -1,19 +1,6 @@
 pipeline {
-
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
-    }
     agent any
-
     tools {
-        maven 'maven 3'
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
     }
-
-    stages {
-        stage('Code Compilation') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-    }
-}
