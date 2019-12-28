@@ -42,7 +42,6 @@ pipeline {
                 sh 'java -version'
             }
         }
-
         stage('Code Compilation') {
             steps {
                 echo 'Hello, Maven'
@@ -63,8 +62,9 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-					docker build -t nitinimage .
-				}
+                echo 'Hello, Maven'
+                sh 'java -version'
+            }
         }
         stage('Upload Image to ECR') {
             steps {
