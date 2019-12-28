@@ -68,7 +68,7 @@ pipeline {
 	    }
         stage('Build Docker Image') {
             steps {
-                 sh '/opt/docker.sh'
+                 sh 'docker build -t ECRimage .'
             }
         }
         stage('Upload Image to ECR') {
