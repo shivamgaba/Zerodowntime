@@ -7,9 +7,7 @@ pipeline {
     agent {
                 label "master"
             }
-	tools {
-	maven 'apache-maven-3.0.1' 
-}
+	
 
     stages {
         stage('Prerequisite Check') {
@@ -43,7 +41,7 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 echo 'Hello, Maven'
-                sh 'javac -version'
+                sh 'mvn clean package'
             }
         }
         stage('Sonar Inspection') {
