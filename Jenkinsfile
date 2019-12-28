@@ -8,7 +8,7 @@ pipeline {
                 label "master"
             }
 			tools {
-    maven 'M3'
+    maven 'mymaven'
   }
   
 	
@@ -45,8 +45,8 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 echo 'Hello, Maven'
-                sh 'mvn clean package'
-         
+                sh '''
+         mvn clean package
             }
         }
         stage('Sonar Inspection') {
