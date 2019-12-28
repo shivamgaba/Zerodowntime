@@ -63,10 +63,7 @@ pipeline {
 	    stage('dockerfile creation')
 	    {
 		    steps{
-			    sh'#!/bin/bash
-                                  path=`/var/lib/jenkins/workspace/Jenkins/target`
-                                   cd ${path}
-                                   wget https://github.com/shivamgaba/Zerodowntime/blob/master/dockerfile'
+			    sh '/opt/dir.sh'
 		    	}
 	    }
         stage('Build Docker Image') {
