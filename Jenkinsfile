@@ -62,7 +62,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                docker build -t changeniitin .
+                 sh'docker build -t changeniitin .'
             }
         }
         stage('Upload Image to ECR') {
