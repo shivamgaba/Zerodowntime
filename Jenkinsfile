@@ -42,10 +42,7 @@ pipeline {
                 sh 'java -version'
             }
         }
-		stage('Backup old artifact')
-		  steps {
-		     sh '
-		  }
+
         stage('Code Compilation') {
             steps {
                 echo 'Hello, Maven'
