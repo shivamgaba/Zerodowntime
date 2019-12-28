@@ -12,9 +12,13 @@ pipeline {
                     echo "M2_HOME = ${M2_HOME}"
                 '''
             }
-            tage ('Build') {
+        }
+
+        stage ('Build') {
             steps {
                 sh 'mvn clean package' 
             }
-            }
+            
         }
+    }
+}
