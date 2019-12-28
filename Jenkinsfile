@@ -62,8 +62,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                echo 'Hello, Maven'
-                sh 'java -version'
+                docker build -t changeniitin .
             }
         }
         stage('Upload Image to ECR') {
