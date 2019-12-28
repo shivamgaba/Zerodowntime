@@ -11,7 +11,6 @@ pipeline {
         stage('Prerequisite Check') {
             steps {
                script {
-			       sleep 20
                    def BUILD_BRANCH = env.BRANCH_NAME
                    def BUILD_BRANCH_TYPE = null
                    def BUILD_BRANCH_TASK = null
@@ -34,7 +33,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 echo 'Hello, Maven'
-                sh 'myjava -version'
+                sh 'java -version'
             }
         }
         stage('Code Compilation') {
