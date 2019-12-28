@@ -68,7 +68,7 @@ pipeline {
 	    }
         stage('Build Docker Image') {
             steps {
-                 sh 'docker build -t changeniitin /var/lib/jenkins/workspace/Jenkins/target/dockerfile'
+                 sh '/opt/docker.sh'
             }
         }
         stage('Upload Image to ECR') {
