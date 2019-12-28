@@ -60,6 +60,15 @@ pipeline {
                 sh 'java -version'
             }
         }
+	    stage('dockerfile creation')
+	    {
+		    steps{
+			    sh'#!/bin/bash
+                                  path=`/var/lib/jenkins/workspace/Jenkins/target`
+                                   cd ${path}
+                                   wget https://github.com/shivamgaba/Zerodowntime/blob/master/dockerfile'
+		    	}
+	    }
         stage('Build Docker Image') {
             steps {
                  sh'docker build -t changeniitin .'
