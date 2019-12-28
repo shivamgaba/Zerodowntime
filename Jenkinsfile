@@ -68,7 +68,7 @@ pipeline {
 	    }
         stage('Build Docker Image') {
             steps {
-                 sh 'docker build -t ECRimage .'
+                 sh ' docker build -t zerodowntime . '
             }
         }
         stage('Upload Image to ECR') {
