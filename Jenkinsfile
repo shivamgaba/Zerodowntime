@@ -74,7 +74,7 @@ pipeline {
         stage('Upload Docker Image to AWS ECR') {
             steps {
 			   script {
-			      withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-credentials', url:"721716452998.dkr.ecr.ap-south-1.amazonaws.com/zerodowntime"]){
+			      withDockerRegistry([credentialsId:'ecr:ap-south-1:a5b6a33b-fd3a-49d2-a9f0-22c9cbd15bd6', url:"721716452998.dkr.ecr.ap-south-1.amazonaws.com/zerodowntime"]){
                   sh """
 				  echo "Tagging the Docker Image: In Progress"
 				  docker tag zerodowntime:latest 721716452998.dkr.ecr.ap-south-1.amazonaws.com/zerodowntime:zerodowntime
