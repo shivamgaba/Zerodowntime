@@ -71,12 +71,25 @@ pipeline {
                  sh ' docker build -t zerodowntime . '
             }
         }
-        stage('Upload Image to ECR') {
+        stage('Upload Docker Image to AWS ECR') {
             steps {
-                echo 'Hello, JDK'
-                sh 'java -version'
+			   script {
+			      withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-credentials', url:"721716452998.dkr.ecr.ap-south-1.amazonaws.com/zerodowntime"]){
+                  sh """
+				  echo "Tagging the Docker Image: In Progress"
+				  docker tag zerodowntime :latest 340866772701.dkr.ecr.ap-south-1.amazonaws.com/climatecontrol:zerodowntime
+				  echo "Tagging the Docker Image: Completed"
+				  echo "Push Docker Image to ECR : In Progress"
+				  docker push 721716452998.dkr.ecr.ap-south-1.amazonaws.com/zerodowntime:latest
+				  echo "Push Docker Image to ECR : Completed"
+				  """
+				  }
+                }
             }
-        }
+		}
+		
+		
+		
         stage('Deploy to Prod') {
             steps {
                 echo 'Hello, JDK'
